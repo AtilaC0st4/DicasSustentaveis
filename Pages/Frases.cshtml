@@ -1,0 +1,129 @@
+﻿@page
+@model DicasSustentaveisGS1.Pages.FrasesModel
+@{
+    ViewData["Title"] = "Frases Sustentáveis";
+}
+
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #93DC8C;
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        max-width: 800px;
+        margin: 30px auto;
+        padding: 20px;
+        background-color: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+        text-align: center;
+        color: #5A8A5A;
+        margin-bottom: 20px;
+    }
+
+    h2 {
+        text-align: center;
+        color: #7EF37E;
+        font-style: italic;
+        margin-bottom: 20px;
+    }
+
+    .btn {
+        display: inline-block;
+        font-size: 16px;
+        font-weight: bold;
+        padding: 10px 20px;
+        margin: 10px 5px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        text-align: center;
+        text-decoration: none;
+        color: white;
+        transition: background-color 0.3s ease;
+    }
+
+    .btn-success {
+        background-color: #7EF37E;
+    }
+
+        .btn-success:hover {
+            background-color: #5EB65E;
+        }
+
+    .btn-primary {
+        background-color: #93DC8C;
+    }
+
+        .btn-primary:hover {
+            background-color: #75BE75;
+        }
+
+    .alert {
+        margin-top: 20px;
+        padding: 10px;
+        background-color: #7EF37E;
+        color: #ffffff;
+        border-radius: 5px;
+        text-align: center;
+    }
+
+    .empty-message {
+        text-align: center;
+        color: #555;
+        margin: 20px 0;
+    }
+
+    .actions {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+</style>
+
+<div class="container">
+    <h1>Frases Sustentáveis</h1>
+
+    <!-- Exibe a frase aleatória -->
+    @if (Model.FraseAleatoria != null)
+    {
+        <h2>@Model.FraseAleatoria.Conteudo</h2>
+
+        <div class="actions">
+            <!-- Formulário para salvar a frase como preferida -->
+            <form method="post" asp-page-handler="Salvar" style="display: inline;">
+                <input type="hidden" name="id" value="@Model.FraseAleatoria.Id" />
+                <button type="submit" class="btn btn-success">Salvar Frase</button>
+            </form>
+
+            <!-- Botão para gerar uma nova frase -->
+            <a asp-page="/Frases" class="btn btn-primary">Gerar Nova Frase</a>
+        </div>
+    }
+    else
+    {
+        <p class="empty-message">Nenhuma frase encontrada. Tente gerar uma nova frase.</p>
+
+        <div class="actions">
+            <!-- Botão para gerar uma nova frase -->
+            <a asp-page="/Frases" class="btn btn-primary">Gerar Nova Frase</a>
+        </div>
+    }
+
+    <!-- Mensagem de feedback -->
+    @if (TempData["Mensagem"] != null)
+    {
+        <p class="alert">@TempData["Mensagem"]</p>
+    }
+
+    <!-- Link para ver frases favoritas -->
+    <div class="actions">
+        <a href="/FraseFavorita" class="btn btn-primary">Ver Frases Preferidas</a>
+    </div>
+</div>
