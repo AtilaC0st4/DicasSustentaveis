@@ -12,6 +12,11 @@ A proposta central é: **ajudar os usuários a adotarem práticas mais conscient
 
 ### LINK DO VÍDEO PITCH:  
 
+https://www.youtube.com/watch?v=0C9crRx9VaM
+
+
+### LINK DO VÍDEO explicando o código de .net:  
+https://youtu.be/gyNooek2J08
 
 ---  
 
