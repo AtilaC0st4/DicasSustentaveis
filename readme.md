@@ -52,7 +52,7 @@ Certifique-se de que as seguintes ferramentas estão instaladas:
 
 1. Clone este repositório:  
    ```bash
-   git clone SEU_REPOSITORIO
+   git clone https://github.com/AtilaC0st4/DicasSustentaveis.git
    cd NOME_DO_PROJETO
    ```  
 
